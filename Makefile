@@ -1,5 +1,5 @@
 # Kapods Kitchen - Content Management Commands
-.PHONY: help dev build edit new-post clean deploy
+.PHONY: help dev build edit new-post clean save deploy publish
 
 # Default target
 help:
@@ -9,9 +9,11 @@ help:
 	@echo "  make dev          - Start development server"
 	@echo "  make build        - Build for production"
 	@echo "  make edit         - Open content editor (Tina CMS)"
-	@echo "  make new-post     - Create a new blog post"
+	@echo "  make new-post     - Instructions for creating new posts"
+	@echo "  make save         - Commit all changes to git"
+	@echo "  make deploy       - Build site for production"
+	@echo "  make publish      - Build, commit, and push to GitHub"
 	@echo "  make clean        - Clean build files"
-	@echo "  make deploy       - Build and prepare for deployment"
 	@echo ""
 
 # Development server
@@ -38,19 +40,33 @@ new-post:
 	@echo "4. Save and your post will be created!"
 	@echo ""
 
-# Clean build files
-clean:
-	rm -rf dist/
-	rm -rf .astro/
+# Save changes to git
+save:
+	@echo "Saving your changes..."
+	@git add .
+	@if git diff --cached --quiet; then \
+		echo "No changes to commit."; \
+	else \
+		git commit -m "Update content and site changes - $(date '+%Y-%m-%d %H:%M')"; \
+		echo "✅ Changes saved to git!"; \
+	fi
 
 # Build for deployment
 deploy: clean
+	@echo "Building site for production..."
 	NODE_ENV=production npm run build
-	@echo "Site built successfully!"
-	@echo "Deploy the 'dist/' folder to your web hosting"
-	@echo ""
-	@echo "For GitHub Pages:"
-	@echo "1. Push this code to your GitHub repository"
-	@echo "2. Enable GitHub Pages in repository settings"
-	@echo "3. Set source to 'GitHub Actions' (or deploy manually)"
-	@echo ""
+	@echo "✅ Site built successfully!"
+	@echo "Ready for deployment"
+
+# Build, commit, and push everything
+publish: deploy save
+	@echo "Pushing to GitHub..."
+	git push origin main
+	@echo "🚀 Site published! GitHub Pages will update automatically."
+	@echo "Visit: https://sarahkapadia.github.io/kapods-kitchen/"
+
+# Clean build files
+clean:
+	@echo "Cleaning build files..."
+	rm -rf dist/
+	rm -rf .astro/

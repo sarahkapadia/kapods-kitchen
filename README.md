@@ -17,22 +17,26 @@ A simple recipe blog. Write recipes, get a beautiful website that works locally 
    ```
    Opens visual editor at `http://localhost:4001`
 
-3. **View Your Site**
+4. **Save & Publish**
    ```bash
-   make dev
+   make save     # Save your changes
+   make publish  # Build & deploy to GitHub Pages
    ```
-   Visit `http://localhost:4321`
+   Your site updates automatically!
 
 ## Adding Posts
 
-**Visual Editor (Recommended):**
-- Run `make edit`
+**Easy Way (Recommended):**
+```bash
+make edit
+```
+- Opens visual editor at `http://localhost:4001`
 - Click "Create New Post"
 - Fill in title, description, category, content
 - Save!
 
-**Manual (Advanced):**
-Create `.md` files in `content/posts/`:
+**Manual Way:**
+Create `.md` files in `content/posts/` with this format:
 
 ```markdown
 ---
@@ -60,26 +64,17 @@ category: "Recipes"
 - Ingredient Spotlight
 - Behind the Scenes
 
-## Deploy
-
-**GitHub Pages:**
-1. Push code to GitHub
-2. Enable GitHub Pages → "GitHub Actions"
-3. Done! Site at `https://username.github.io/repo-name`
-
-**Manual:**
-```bash
-make deploy
-```
-Upload `dist/` folder to your hosting.
-
-## Commands
+## All Commands
 
 ```bash
-make dev      # View site
-make edit     # Add content
-make build    # Build for deploy
-make deploy   # Build + clean
+make help     # Show all commands
+make dev      # Start development server
+make edit     # Open content editor
+make save     # Commit changes to git
+make build    # Build for production
+make deploy   # Build site
+make publish  # Build, save, and push to GitHub
+make clean    # Clean build files
 ```
 
 Happy cooking! 👩‍🍳
