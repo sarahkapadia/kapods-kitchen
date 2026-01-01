@@ -1,0 +1,28 @@
+---
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tina Admin</title>
+		<script>
+			// Redirect to Tina Cloud admin when not in local mode
+			// In production with Tina Cloud, the admin interface will be served here
+			if (typeof window !== 'undefined' && !window.location.hostname.includes('localhost')) {
+				// For Tina Cloud, you would typically have the admin interface served at /admin
+				// This is a placeholder - Tina Cloud would serve the admin interface here
+				window.location.href = '/';
+			}
+		</script>
+	</head>
+	<body>
+		<div style="padding: 2rem; text-align: center;">
+			<h1>Tina CMS Admin</h1>
+			<p>For local development, run: <code>npx @tinacms/cli dev</code></p>
+			<p>Then visit <a href="http://localhost:4001">http://localhost:4001</a></p>
+			<p>For production, set up Tina Cloud credentials in <code>tina/config.ts</code></p>
+			<a href="/">← Back to Recipes</a>
+		</div>
+	</body>
+</html>
