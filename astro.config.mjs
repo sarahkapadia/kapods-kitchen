@@ -4,7 +4,7 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
-  site: process.env.CI ? 'https://sarahkapadia.github.io' : undefined,
-  base: process.env.CI ? '/kapods-kitchen' : undefined,
+  site: 'https://sarahkapadia.github.io',
+  base: process.env.NODE_ENV === 'development' ? '/' : '/kapods-kitchen',
   integrations: [],
 });

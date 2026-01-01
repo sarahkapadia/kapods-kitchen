@@ -44,7 +44,8 @@ clean:
 	rm -rf .astro/
 
 # Build for deployment
-deploy: clean build
+deploy: clean
+	NODE_ENV=production npm run build
 	@echo "Site built successfully!"
 	@echo "Deploy the 'dist/' folder to your web hosting"
 	@echo ""

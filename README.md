@@ -1,110 +1,85 @@
 # Kapods Kitchen 🍳
 
-A simple recipe blog with beautiful placeholder images. Add your own recipes and content easily!
+A simple recipe blog. Write recipes, get a beautiful website that works locally and online.
 
-## Quick Start
+## Get Started
 
-### 1. Get the code
-```bash
-git clone <your-repo-url>
-cd kapods-kitchen
-npm install
-```
+1. **Clone & Install**
+   ```bash
+   git clone <your-repo-url>
+   cd kapods-kitchen
+   npm install
+   ```
 
-### 2. Start writing content
-```bash
-make new-post
-```
+2. **Add Content**
+   ```bash
+   make edit
+   ```
+   Opens visual editor at `http://localhost:4001`
 
-This opens Tina CMS where you can create new posts with a visual editor.
+3. **View Your Site**
+   ```bash
+   make dev
+   ```
+   Visit `http://localhost:4321`
 
-### 3. See your site
-```bash
-make dev
-```
-Visit `http://localhost:4321` to see your site.
+## Adding Posts
 
-## Adding Content
-
-### Option 1: Visual Editor (Easiest)
-```bash
-make edit
-```
-- Opens Tina CMS at `http://localhost:4001`
+**Visual Editor (Recommended):**
+- Run `make edit`
 - Click "Create New Post"
-- Add title, description, category, and content
-- Save and you're done!
+- Fill in title, description, category, content
+- Save!
 
-### Option 2: Edit Files Directly
-Create new `.md` files in `content/posts/` with this format:
+**Manual (Advanced):**
+Create `.md` files in `content/posts/`:
 
 ```markdown
 ---
-title: "Your Recipe Title"
-description: "Brief description of your recipe"
+title: "Chocolate Chip Cookies"
+description: "Chewy cookies everyone loves"
 category: "Recipes"
 ---
 
-# Your Recipe Title
-
-Your recipe content here...
+# Chocolate Chip Cookies
 
 ## Ingredients
-- Ingredient 1
-- Ingredient 2
+- 2 cups flour
+- 1 cup butter
+- 1 cup chocolate chips
 
 ## Instructions
-1. Step one
-2. Step two
-```
-
-## Available Commands
-
-```bash
-make help         # Show all available commands
-make dev          # Start development server
-make build        # Build for production
-make edit         # Open content editor (Tina CMS)
-make new-post     # Instructions for creating new posts
-make clean        # Clean build files
-make deploy       # Build and prepare for deployment
-```
-
-Or use npm commands directly:
-
-```bash
-npm run dev       # Start development server
-npm run build     # Build for production
+1. Mix ingredients
+2. Bake at 350°F for 12 minutes
 ```
 
 ## Categories
+- Recipes
+- Cooking Tips
+- Kitchen Adventures
+- Ingredient Spotlight
+- Behind the Scenes
 
-Choose from these categories for your posts:
-- **Recipes** - Cooking recipes
-- **Cooking Tips** - Kitchen advice
-- **Kitchen Adventures** - Personal stories
-- **Ingredient Spotlight** - Focus on specific ingredients
-- **Behind the Scenes** - Behind-the-scenes content
+## Deploy
 
-## Deployment
+**GitHub Pages:**
+1. Push code to GitHub
+2. Enable GitHub Pages → "GitHub Actions"
+3. Done! Site at `https://username.github.io/repo-name`
 
-### GitHub Pages (Recommended)
-1. Push your code to GitHub
-2. Enable GitHub Pages in repository settings
-3. Set source to "GitHub Actions"
-4. Your site will be at `https://yourusername.github.io/repository-name`
-
-### Manual Deploy
+**Manual:**
 ```bash
 make deploy
 ```
-Then upload the `dist/` folder to your web hosting.
+Upload `dist/` folder to your hosting.
 
-## Need Help?
+## Commands
 
-- Content gets saved as `.md` files in `content/posts/`
-- Images use automatic placeholders from placehold.co
-- All posts show up automatically on your homepage
-- Visit `/admin` on your live site to edit content online
+```bash
+make dev      # View site
+make edit     # Add content
+make build    # Build for deploy
+make deploy   # Build + clean
+```
 
 Happy cooking! 👩‍🍳

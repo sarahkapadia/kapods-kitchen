@@ -612,7 +612,7 @@ if (recipes.length === 0) {
 				<div class="posts-container">
 					<div class="posts-grid">
 					{recipes.map((recipe) => (
-						<a href={`/recipes/${recipe.slug || recipe.id.replace('.json', '')}`} class="post-card-link">
+						<a href={`recipes/${recipe.slug || recipe.id.replace('.json', '')}`} class="post-card-link">
 							<article class="post-card" data-category={recipe.data.category} data-title={recipe.data.title.toLowerCase()}>
 								<div class="post-image-container">
 									<img src={recipe.data.heroImage || `https://placehold.co/400x200?text=${encodeURIComponent(recipe.data.category || 'No Image')}`} alt={recipe.data.title} class="post-image" />
@@ -918,7 +918,8 @@ if (recipes.length === 0) {
 				card.setAttribute('data-search', searchText);
 
 				const cardLink = document.createElement('a');
-				cardLink.href = `/recipes/${slug}`;
+				const basePath = window.location.pathname.startsWith('/kapods-kitchen') ? '/kapods-kitchen' : '';
+				cardLink.href = `${basePath}/recipes/${slug}`;
 				cardLink.className = 'post-card-link';
 
 				const cardContent = `
