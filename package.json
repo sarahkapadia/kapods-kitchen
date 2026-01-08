@@ -3,15 +3,19 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
+    "dev": "tinacms dev -c \"astro dev\"",
+    "build": "tinacms build && astro build",
+    "preview": "tinacms build && astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@tinacms/cli": "^2.0.6",
     "astro": "^5.16.6",
     "marked": "^17.0.1",
+    "react": "^19.2.3",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "react-dom": "^19.2.3",
     "tinacms": "^3.1.3"
   }
 }
