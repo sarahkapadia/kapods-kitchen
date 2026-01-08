@@ -960,30 +960,7 @@ if (recipes.length === 0) {
 
 			// Initialize
 			document.addEventListener('DOMContentLoaded', function() {
-				initTinaClient();
-
-				// Sync sort dropdowns
-				document.getElementById('sortBy').addEventListener('change', function() {
-					document.getElementById('sortByHeader').value = this.value;
-				});
-
-				document.getElementById('sortByHeader').addEventListener('change', function() {
-					document.getElementById('sortBy').value = this.value;
-				});
-
-				// Search on enter
-				document.getElementById('searchInput').addEventListener('keypress', function(e) {
-					if (e.key === 'Enter') {
-						performSearch();
-					}
-				});
-
-				// Add search input event listener for live search
-				let searchTimeout;
-				document.getElementById('searchInput').addEventListener('input', function() {
-					clearTimeout(searchTimeout);
-					searchTimeout = setTimeout(performSearch, 300);
-				});
+				initCategoryFilters();
 			});
 		</script>
 	</body>
