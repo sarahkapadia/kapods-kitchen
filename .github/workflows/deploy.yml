@@ -17,6 +17,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: github-pages
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,16 +25,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          cache: 'npm'
+          node-version: '22'
+          cache: 'yarn'
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn install
 
       - name: Build site
-        run: npm run build
+        run: yarn build
         env:
           CI: true
+          TINA_CMS_CLIENT_ID: ${{ secrets.TINA_CMS_CLIENT_ID || vars.TINA_CMS_CLIENT_ID }}
+          TINA_CMS_CONTENT_TOKEN: ${{ secrets.TINA_CMS_CONTENT_TOKEN || vars.TINA_CMS_CONTENT_TOKEN }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

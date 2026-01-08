@@ -18,18 +18,18 @@ help:
 
 # Development server
 dev:
-	npm run dev
+	yarn dev
 
 # Production build
 build:
-	npm run build
+	yarn build
 
 # Open Tina CMS for content editing
 edit:
 	@echo "Starting Tina CMS for content editing..."
 	@echo "Visit: http://localhost:4001"
 	@echo ""
-	npx @tinacms/cli dev
+	yarn dev
 
 # Create a new blog post
 new-post:
@@ -54,7 +54,7 @@ save:
 # Build for deployment
 deploy: clean
 	@echo "Building site for production..."
-	NODE_ENV=production npm run build
+	NODE_ENV=production yarn build
 	@echo "✅ Site built successfully!"
 	@echo "Ready for deployment"
 
@@ -63,7 +63,7 @@ publish: deploy save
 	@echo "Pushing to GitHub..."
 	git push origin main
 	@echo "🚀 Site published! GitHub Pages will update automatically."
-	@echo "Visit: https://sarahkapadia.github.io/kapods-kitchen/"
+	@echo "Visit: https://sarahkapadia.github.io/"
 
 # Clean build files
 clean:

@@ -918,7 +918,7 @@ if (recipes.length === 0) {
 				card.setAttribute('data-search', searchText);
 
 				const cardLink = document.createElement('a');
-				const basePath = window.location.pathname.startsWith('/kapods-kitchen') ? '/kapods-kitchen' : '';
+				const basePath = '';
 				cardLink.href = `${basePath}/recipes/${slug}`;
 				cardLink.className = 'post-card-link';
 
